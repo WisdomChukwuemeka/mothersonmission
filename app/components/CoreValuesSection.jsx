@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 // ── Core Values data ───────────────────────────────────────────────
 const coreValues = [
-  { label: "Truth",       icon: "✦", color: "#2563eb", light: "#dbeafe", desc: "We speak and live honestly in all we do." },
-  { label: "Holiness",    icon: "✝", color: "#7c3aed", light: "#ede9fe", desc: "We honour God in every action and word." },
-  { label: "Love",        icon: "♡", color: "#e11d48", light: "#ffe4e6", desc: "Unconditional love drives every service." },
-  { label: "Prayer",      icon: "🙏", color: "#d97706", light: "#fef3c7", desc: "We are rooted in prayer and divine guidance." },
-  { label: "Discipline",  icon: "⚡", color: "#059669", light: "#d1fae5", desc: "Excellence through consistent commitment." },
-  { label: "Care",        icon: "❤", color: "#0891b2", light: "#cffafe", desc: "Deep, personal care for every mother." },
+  { label: "Truth", icon: "✦", color: "#2563eb", light: "#dbeafe", desc: "We speak and live honestly in all we do." },
+  { label: "Holiness", icon: "✝", color: "#7c3aed", light: "#ede9fe", desc: "We honour God in every action and word." },
+  { label: "Love", icon: "♡", color: "#e11d48", light: "#ffe4e6", desc: "Unconditional love drives every service." },
+  { label: "Prayer", icon: "🙏", color: "#d97706", light: "#fef3c7", desc: "We are rooted in prayer and divine guidance." },
+  { label: "Discipline", icon: "⚡", color: "#059669", light: "#d1fae5", desc: "Excellence through consistent commitment." },
+  { label: "Care", icon: "❤", color: "#0891b2", light: "#cffafe", desc: "Deep, personal care for every mother." },
 ];
 
 // ── Orbit Node ─────────────────────────────────────────────────────
@@ -29,7 +29,6 @@ function OrbitNode({ value, angle, radius, active, onClick }) {
         zIndex: 10,
       }}
     >
-      {/* Outer ring pulse when active */}
       {active && (
         <span
           className="absolute w-20 h-20 rounded-full animate-ping opacity-20"
@@ -37,7 +36,6 @@ function OrbitNode({ value, angle, radius, active, onClick }) {
         />
       )}
 
-      {/* Circle */}
       <span
         className="relative w-16 h-16 md:w-20 md:h-20 rounded-full flex flex-col items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110"
         style={{
@@ -51,7 +49,6 @@ function OrbitNode({ value, angle, radius, active, onClick }) {
         </span>
       </span>
 
-      {/* Label */}
       <span
         className="text-xs md:text-sm font-bold tracking-wide transition-all duration-300"
         style={{ color: active ? value.color : "#475569" }}
@@ -65,54 +62,100 @@ function OrbitNode({ value, angle, radius, active, onClick }) {
 // ── Main Section ───────────────────────────────────────────────────
 export default function CoreValuesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [rotation, setRotation] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [radius, setRadius] = useState(155);
+  const [renderTick, setRenderTick] = useState(0); // Forces re-render every frame
+  
+  const rotationRef = useRef(0);
   const rafRef = useRef(null);
   const lastTimeRef = useRef(null);
+  const isPausedRef = useRef(false);
 
-  // Auto-rotate orbit
+  // Keep refs in sync
+  isPausedRef.current = false; // Will be set by mouse events
+
+  // Handle responsive radius
   useEffect(() => {
-    if (paused) return;
-    const speed = 0.018; // degrees per ms
+    const updateRadius = () => {
+      setRadius(window.innerWidth < 640 ? 115 : 155);
+    };
+    
+    updateRadius();
+    window.addEventListener("resize", updateRadius);
+    return () => window.removeEventListener("resize", updateRadius);
+  }, []);
+
+  // Animation loop
+  useEffect(() => {
+    const speed = 0.018;
+    const anglePerItem = 360 / coreValues.length;
 
     const animate = (time) => {
-      if (lastTimeRef.current !== null) {
-        const delta = time - lastTimeRef.current;
-        setRotation((r) => (r + speed * delta) % 360);
+      if (!lastTimeRef.current) {
+        lastTimeRef.current = time;
       }
+
+      const delta = time - lastTimeRef.current;
       lastTimeRef.current = time;
+
+      // Only update if not paused
+      if (!isPausedRef.current) {
+        // Update rotation
+        rotationRef.current = (rotationRef.current + speed * delta) % 360;
+        
+        // Calculate active index
+        let closest = 0;
+        let minDiff = Infinity;
+
+        for (let i = 0; i < coreValues.length; i++) {
+          const itemAngle = (i * anglePerItem + rotationRef.current) % 360;
+          let diff = Math.abs(itemAngle - 270);
+          if (diff > 180) diff = 360 - diff;
+          
+          if (diff < minDiff) {
+            minDiff = diff;
+            closest = i;
+          }
+        }
+
+        // Update active index if changed
+        if (closest !== activeIndex) {
+          setActiveIndex(closest);
+        }
+      }
+
+      // Always trigger re-render to update positions
+      setRenderTick(t => t + 1);
+
       rafRef.current = requestAnimationFrame(animate);
     };
 
     rafRef.current = requestAnimationFrame(animate);
+
     return () => {
       cancelAnimationFrame(rafRef.current);
-      lastTimeRef.current = null;
     };
-  }, [paused]);
-
-  // Sync active node to whichever is at the "top" (270 degrees)
-  useEffect(() => {
-    const anglePerItem = 360 / coreValues.length;
-    const angles = coreValues.map((_, i) => (i * anglePerItem + rotation) % 360);
-    // Find closest to 270 (top)
-    let closest = 0;
-    let minDiff = Infinity;
-    angles.forEach((a, i) => {
-      const diff = Math.abs(((a - 270 + 360) % 360));
-      const diff2 = Math.abs(diff - 360);
-      const d = Math.min(diff, diff2);
-      if (d < minDiff) { minDiff = d; closest = i; }
-    });
-    setActiveIndex(closest);
-  }, [rotation]);
+  }, [activeIndex]); // Only re-run if activeIndex changes (rarely)
 
   const active = coreValues[activeIndex];
-  const radius = typeof window !== "undefined" && window.innerWidth < 640 ? 115 : 155;
+
+  const handleNodeClick = useCallback((index) => {
+    isPausedRef.current = true;
+    setActiveIndex(index);
+    setTimeout(() => {
+      isPausedRef.current = false;
+    }, 3000);
+  }, []);
+
+  const handleMouseEnter = useCallback(() => {
+    isPausedRef.current = true;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    isPausedRef.current = false;
+  }, []);
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
-      {/* Subtle background pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
           backgroundImage: "radial-gradient(circle, #1e40af 1px, transparent 1px)",
@@ -120,12 +163,9 @@ export default function CoreValuesSection() {
         }}
       />
 
-      {/* Top fade */}
       <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white to-transparent pointer-events-none z-10" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-
-        {/* Section header */}
         <div className="text-center mb-16">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
             Who We Are
@@ -139,19 +179,14 @@ export default function CoreValuesSection() {
           </p>
         </div>
 
-        {/* Orbit + Info layout */}
         <div className="flex flex-col lg:flex-row items-center gap-16 justify-center">
-
-          {/* ── ORBIT ── */}
           <div
             className="relative flex-shrink-0"
             style={{ width: 360, height: 360 }}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
-            {/* Orbit ring */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 360 360">
-              {/* Outer dashed orbit path */}
               <circle
                 cx="180" cy="180" r="155"
                 fill="none"
@@ -159,7 +194,6 @@ export default function CoreValuesSection() {
                 strokeWidth="1.5"
                 strokeDasharray="6 6"
               />
-              {/* Inner glow ring */}
               <circle
                 cx="180" cy="180" r="155"
                 fill="none"
@@ -167,10 +201,9 @@ export default function CoreValuesSection() {
                 strokeWidth="1"
                 strokeOpacity="0.2"
               />
-              {/* Connector lines from center to each node */}
               {coreValues.map((v, i) => {
                 const anglePerItem = 360 / coreValues.length;
-                const a = ((i * anglePerItem + rotation) % 360) * (Math.PI / 180);
+                const a = ((i * anglePerItem + rotationRef.current) % 360) * (Math.PI / 180);
                 const x2 = 180 + Math.cos(a) * 155;
                 const y2 = 180 + Math.sin(a) * 155;
                 return (
@@ -187,7 +220,6 @@ export default function CoreValuesSection() {
               })}
             </svg>
 
-            {/* Center hub */}
             <div
               className="absolute rounded-full flex flex-col items-center justify-center shadow-2xl z-20 transition-all duration-500"
               style={{
@@ -209,30 +241,23 @@ export default function CoreValuesSection() {
               </span>
             </div>
 
-            {/* Orbit nodes */}
             {coreValues.map((v, i) => {
               const anglePerItem = 360 / coreValues.length;
-              const angle = (i * anglePerItem + rotation) % 360;
+              const angle = (i * anglePerItem + rotationRef.current) % 360;
               return (
                 <OrbitNode
                   key={v.label}
                   value={v}
                   angle={angle}
-                  radius={155}
+                  radius={radius}
                   active={activeIndex === i}
-                  onClick={() => {
-                    setPaused(true);
-                    setActiveIndex(i);
-                    setTimeout(() => setPaused(false), 3000);
-                  }}
+                  onClick={() => handleNodeClick(i)}
                 />
               );
             })}
           </div>
 
-          {/* ── INFO PANEL ── */}
           <div className="max-w-sm w-full">
-            {/* Active value detail */}
             <div
               key={active.label}
               className="rounded-2xl p-8 transition-all duration-500 animate-fadeIn"
@@ -264,16 +289,11 @@ export default function CoreValuesSection() {
               </div>
             </div>
 
-            {/* All values quick-select */}
             <div className="mt-6 grid grid-cols-3 gap-2">
               {coreValues.map((v, i) => (
                 <button
                   key={v.label}
-                  onClick={() => {
-                    setPaused(true);
-                    setActiveIndex(i);
-                    setTimeout(() => setPaused(false), 3000);
-                  }}
+                  onClick={() => handleNodeClick(i)}
                   className="rounded-xl py-2 px-3 text-xs font-bold transition-all duration-200 hover:scale-105"
                   style={{
                     backgroundColor: activeIndex === i ? v.color : v.light,
