@@ -48,8 +48,8 @@ export const Header = () => {
               <span className="text-xl font-bold text-black uppercase">MOM</span>
             </div>
             </Link>
-          //       <nav className="hidden md:flex items-center gap-1">
-    //         {navLinks.map((link) => {
+              <nav className="hidden md:flex items-center gap-1">
+           {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
