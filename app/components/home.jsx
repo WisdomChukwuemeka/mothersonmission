@@ -70,11 +70,10 @@ const programs = [
 // ── Stories data ───────────────────────────────────────────────────
 const stories = [
   {
-    name: "Amara Okonkwo",
-    role: "Participant, Economic Empowerment Program • Lagos",
-    quote:
-      "When I joined the program, I was tired and discouraged. I prayed for a way forward but didn’t know where to begin. Through the training and mentorship, I discovered that I carried more than just burdens I carried purpose. Today I run a catering business and employ five women from my neighbourhood. For the first time, I feel confident that I am fulfilling God’s assignment for my family.",
-    image: "/homeimage/momtwo.png",
+    name: "Nnenna Ogbonna",
+    role: "Accounatant • Port Harcourt",
+    quote: "As a single woman seeking growth, purpose, and belonging, i found a welcoming and empowering community in Mothers on Mission International. The organization helped strengthen my faith, clarify my identity, and embrace my current season without pressure. Beyond my personal experience, i have seen lives, marriages, and families transformed. i describes it as a safe, nurturing space that uplifts and equips women in every stage of life",
+    image: "/testimony/nnena.png",
     year: "2022",
   },
   {
@@ -228,12 +227,12 @@ export const Home = () => {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 h-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex items-center">
+        <div className="relative z-10 h-full min-h-150 md:min-h-175 lg:min-h-200 flex items-center">
           <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-10 py-20 md:py-0">
             <p className="text-orange-300 font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] mb-3 md:mb-4">
               Mothers of Mission International
             </p>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.15] max-w-3xl">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.15] max-w-2xl">
               Developing mothers & potential mothers to become{" "}
               <span className="text-orange-300 italic">catalysts</span>
               {" "}for change, compassion &amp; national growth.
@@ -308,14 +307,6 @@ export const Home = () => {
     a home is strengthened, children are guided with purpose, and communities
     experience lasting, generational impact.
   </p>
-
-  <Link
-    href="/about"
-    className="inline-flex items-center gap-2 text-blue-700 font-semibold hover:gap-4 transition-all duration-200"
-  >
-    Learn more about us
-    <span className="text-lg">→</span>
-  </Link>
 </div>
 
           {/* Values grid */}
@@ -337,7 +328,7 @@ export const Home = () => {
       icon: "🤝",
       title: "Community",
       desc: "Collective action amplifies individual change.",
-      image: "/mission/community.png",
+      image: "/mission/herofive.png",
     },
     {
       icon: "⚖️",
