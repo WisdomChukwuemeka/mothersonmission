@@ -134,7 +134,7 @@ function FAQItem({ q, a }) {
       >
         <span className="font-semibold text-slate-800 pr-4">{q}</span>
         <span
-          className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white text-sm font-bold transition-all duration-300 ${
+          className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white text-sm font-bold transition-all duration-300 ${
             open ? "bg-blue-500 rotate-45" : "bg-slate-300"
           }`}
         >
@@ -199,62 +199,62 @@ export const Home = () => {
   return (
     <div className="w-full bg-white font-sans antialiased">
 
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden">
+           {/* ── HERO ── */}
+      <section className="relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/homeimage/hero.png"
+            alt="Mothers of the Nation"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/70 to-black/40" />
+        </div>
+
         {/* Decorative blobs */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="absolute top-10 left-0 w-80 h-80 bg-blue-400 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-400 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative w-full">
-          {/* image + overlay */}
-          <div className="relative w-full h-[520px] md:h-[620px] lg:h-[700px] overflow-hidden">
-            <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/55 to-black/30 z-10" />
-            <Image
-              src="/homeimage/momtwo.png"
-              alt="Mothers of the Nation"
-              fill
-              className="object-cover object-center"
-              priority
-            />
+        {/* Floating badge - hidden on small screens */}
+        <div className="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3 hidden md:flex items-center gap-3">
+          <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse" />
+          <span className="text-white text-sm font-medium">Empowering Nigeria's Mothers Since 2009</span>
+        </div>
 
-            {/* Floating badge */}
-            <div className="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3 hidden md:flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse" />
-              <span className="text-white text-sm font-medium">Empowering Nigeria's Mothers Since 2009</span>
-            </div>
-
-            {/* Hero text */}
-            <div className="absolute inset-0 z-20 flex items-center">
-              <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-20">
-                <p className="text-orange-300 font-semibold text-sm uppercase tracking-[0.25em] mb-4">
-                  Mothers of the Nation Foundation
-                </p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] max-w-2xl">
-                  Developing mothers to become{" "}
-                  <span className="text-orange-300 italic">catalysts</span>
-                  {" "}for change, compassion &amp; national growth.
-                </h1>
-                <p className="mt-5 text-white/75 max-w-lg text-base md:text-lg leading-relaxed">
-                  We walk alongside Nigerian mothers, equipping, elevating, and
-                  empowering them to transform their families and communities.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Link
-                    href="/programs"
-                    className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-blue-900/30 transition-all duration-200"
-                  >
-                    See Our Programs
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200"
-                  >
-                    What We Do
-                  </Link>
-                </div>
-              </div>
+        {/* Hero Content */}
+        <div className="relative z-10 h-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex items-center">
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-10 py-20 md:py-0">
+            <p className="text-orange-300 font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] mb-3 md:mb-4">
+              Mothers of Mission International
+            </p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.15] max-w-3xl">
+              Developing mothers & potential mothers to become{" "}
+              <span className="text-orange-300 italic">catalysts</span>
+              {" "}for change, compassion &amp; national growth.
+            </h1>
+            <p className="mt-4 md:mt-5 text-white/80 max-w-lg text-sm sm:text-base md:text-lg leading-relaxed">
+              We walk alongside Nigerian mothers, equipping, elevating, and
+              empowering them to transform their families and communities.
+            </p>
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link
+                href="/programs"
+                className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl shadow-lg shadow-blue-900/30 transition-all duration-200 text-center"
+              >
+                See Our Programs
+              </Link>
+              <Link
+                href="/about"
+                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white font-semibold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl transition-all duration-200 text-center"
+              >
+                What We Do
+              </Link>
             </div>
           </div>
         </div>

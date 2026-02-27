@@ -69,13 +69,13 @@ export const Header = () => {
             })}
           </nav>
 
-            <div className="hidden xl:flex bg-blue-700 rounded-full w-fit h-fit py-1.5">
+            <div className="hidden md:flex bg-blue-700 rounded-full w-fit h-fit py-1.5">
               <i className="bi bi-search text-white pl-4 px-3"></i>
               <p className="text-white pr-4 text-sm">Explore our resources</p>
             </div>
             {/* Mobile Menu Button */}
             <button
-              className="xl:hidden text-gray-700 focus:outline-none"
+              className="md:hidden text-gray-700 focus:outline-none"
               onClick={toggleMobileMenu}
             >
               {isMobileMenuOpen ? (
