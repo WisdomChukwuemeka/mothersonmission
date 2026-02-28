@@ -199,11 +199,11 @@ export const Home = () => {
     <div className="w-full bg-white font-sans antialiased">
 
            {/* ── HERO ── */}
-      <section className="relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden">
+      <section className="relative min-h-150 md:min-h-175 lg:min-h-200 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/homeimage/hero.png"
+            src="/homeimage/herotwo.png"
             alt="Mothers of the Nation"
             fill
             className="object-cover object-center"
@@ -223,7 +223,7 @@ export const Home = () => {
         {/* Floating badge - hidden on small screens */}
         <div className="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3 hidden md:flex items-center gap-3">
           <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse" />
-          <span className="text-white text-sm font-medium">Empowering Nigeria's Mothers Since 2009</span>
+          <span className="text-white text-sm font-medium">Empowering Nigeria's Mothers Since 2016</span>
         </div>
 
         {/* Hero Content */}
