@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Mothers on Mission International | Empowering Nigerian Mothers for Lasting Change",
+ template: "%s | Mothers on Mission International",
   description: "A non-denominational, non-profit organization founded in 2016, dedicated to empowering Nigerian mothers through spiritual growth, education, economic opportunities, and community development. We've impacted over 4,800 mothers across 32 states with programs in literacy, business training, health, and civic engagement.",
   keywords: [
     "Nigerian mothers empowerment",
@@ -39,7 +40,7 @@ export const metadata = {
     siteName: "Mothers on Mission International",
     images: [
       {
-        url: "/logo/logo.png", // Use your founder image or a dedicated OG image
+        url: "/og-image.png", // Use your founder image or a dedicated OG image
         width: 1200,
         height: 630,
         alt: "Ambassadors Vivian and Jarlath Anyanwu, Founders of Mothers on Mission International",
@@ -52,7 +53,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Mothers on Mission International | Empowering Nigerian Mothers",
     description: "Join our mission to empower mothers and build stronger communities in Nigeria. Learn about our impact since 2016.",
-    images: ["/logo/logo.png"], // Or a custom Twitter image
+    images: ["/logo.png"], // Or a custom Twitter image
     // creator: "@yourngohandle", // Replace with actual Twitter handle
   },
   robots: {
@@ -66,11 +67,14 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico", // Assuming you have a favicon
-    shortcut: "/favicon.ico",
-    apple: "/logo/logo.png",
-  },
+  // icons: {
+  //   icon: [
+  //     { url: "/favicon.ico", sizes: "any" },
+  //     { url: "/logo.png", type: "image/png" },
+  //   ],
+  //   apple: "/logo.png",
+  // },
+
   metadataBase: new URL("https://mominternational.org"), // Replace with your actual domain
 };
 
