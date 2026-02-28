@@ -523,7 +523,7 @@ export const Home = () => {
             Trusted partners &amp; supporters
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-50">
-            {["UNICEF", "UN Women", "USAID", "World Bank", "Ford Foundation", "CBN", "NDDC"].map((p) => (
+            {["IWPA", "UN Women", "USAID", "World Bank", "Ford Foundation", "CBN", "NDDC"].map((p) => (
               <span key={p} className="text-slate-700 font-black text-lg tracking-tight">
                 {p}
               </span>
