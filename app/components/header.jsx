@@ -34,7 +34,7 @@ export const Header = () => {
     <>
       <div className="sticky top-0 left-0 w-full z-50 shadow-md opacity-100">
         <div>
-          <header className="relative flex items-center justify-between px-8 py-3 bg-white">
+          <header className="relative flex items-center justify-between px-3 py-3 bg-white">
             <Link href="/">
             <div className="flex items-center">
               <div className="mr-1">
