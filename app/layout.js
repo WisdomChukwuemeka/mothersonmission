@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Mothers of the Nation Foundation | Empowering Nigerian Mothers for Lasting Change",
+  title: "Mothers on Mission International | Empowering Nigerian Mothers for Lasting Change",
   description: "A non-denominational, non-profit organization founded in 2016, dedicated to empowering Nigerian mothers through spiritual growth, education, economic opportunities, and community development. We've impacted over 4,800 mothers across 32 states with programs in literacy, business training, health, and civic engagement.",
   keywords: [
     "Nigerian mothers empowerment",
@@ -33,16 +33,16 @@ export const metadata = {
   ],
   authors: [{ name: "Mothers on Mission International", url: "https://mominternational.org" }],
   openGraph: {
-    title: "Mothers of the Nation Foundation | Empowering Nigerian Mothers",
+    title: "Mothers on Mission International | Empowering Nigerian Mothers",
     description: "Discover how we're transforming lives through holistic programs in education, economic empowerment, and community building across Nigeria.",
     url: "https://mominternational.org",
-    siteName: "Mothers of the Nation Foundation",
+    siteName: "Mothers on Mission International",
     images: [
       {
         url: "/logo/logo.png", // Use your founder image or a dedicated OG image
         width: 1200,
         height: 630,
-        alt: "Ambassadors Vivian and Jarlath Anyanwu, Founders of Mothers of the Nation Foundation",
+        alt: "Ambassadors Vivian and Jarlath Anyanwu, Founders of Mothers on Mission International",
       },
     ],
     locale: "en_US",
@@ -50,7 +50,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mothers of the Nation Foundation | Empowering Nigerian Mothers",
+    title: "Mothers on Mission International | Empowering Nigerian Mothers",
     description: "Join our mission to empower mothers and build stronger communities in Nigeria. Learn about our impact since 2016.",
     images: ["/logo/logo.png"], // Or a custom Twitter image
     // creator: "@yourngohandle", // Replace with actual Twitter handle
