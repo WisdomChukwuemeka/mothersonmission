@@ -70,7 +70,7 @@ const programs = [
 // ── Stories data ───────────────────────────────────────────────────
 const stories = [
   {
-    name: "Nnenna Ogbonna",
+    name: "Onyedikachi Ogbonna",
     role: "Accounatant • Port Harcourt",
     quote: "As a single woman seeking growth, purpose, and belonging, i found a welcoming and empowering community in Mothers on Mission International. The organization helped strengthen my faith, clarify my identity, and embrace my current season without pressure. Beyond my personal experience, i have seen lives, marriages, and families transformed. i describes it as a safe, nurturing space that uplifts and equips women in every stage of life",
     image: "/testimony/nnena.png",
@@ -203,7 +203,7 @@ export const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/homeimage/herotwo.png"
+            src="/homeimage/heri.png"
             alt="Mothers of the Nation"
             fill
             className="object-cover object-center"
@@ -230,7 +230,7 @@ export const Home = () => {
         <div className="relative z-10 h-full min-h-150 md:min-h-175 lg:min-h-200 flex items-center">
           <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-10 py-20 md:py-0">
             <p className="text-orange-300 font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] mb-3 md:mb-4">
-              Mothers of Mission International
+              MOTHERS ON MISSION INTERNATIONAL
             </p>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.15] max-w-2xl">
               Developing mothers & potential mothers to become{" "}
@@ -284,7 +284,7 @@ export const Home = () => {
   </span>
 
   <h2 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-5">
-    Empowering mothers to rise, lead, and fulfil God’s divine assignment.
+    Empowering mothers and potential mothers to rise, lead, and fulfil God’s divine assignment.
   </h2>
 
   <p className="text-slate-600 leading-relaxed mb-6">
