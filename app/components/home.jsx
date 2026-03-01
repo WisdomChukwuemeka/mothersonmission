@@ -25,10 +25,10 @@ function useCountUp(target, duration = 2000, start = false) {
 
 // ── Stats data ─────────────────────────────────────────────────────
 const stats = [
-  { value: 4800, suffix: "+", label: "Mothers Empowered" },
-  { value: 32, suffix: "", label: "States Reached" },
-  { value: 120, suffix: "+", label: "Community Programs" },
-  { value: 15, suffix: "yrs", label: "Of Impact" },
+  { value: 4500, suffix: "+", label: "Mothers Empowered" },
+  { value: 7, suffix: "+", label: "States Reached" },
+  { value: 40, suffix: "+", label: "Community Programs"},
+  { value: 10, suffix: "yrs", label: "Of Impact" },
 ];
 
 // ── Programs data ──────────────────────────────────────────────────
@@ -77,11 +77,11 @@ const stories = [
     year: "2022",
   },
   {
-    name: "Fatima Al-Hassan",
-    role: "Participant, Literacy & Personal Growth • Kano",
+    name: "Happiness Chinasa Anyanwu",
+    role: "Secretary",
     quote:
-      "I used to hide whenever forms needed to be filled or letters needed to be read. I felt ashamed that I could not read at my age. This program did more than teach me letters it restored my dignity. I can now read my Bible, help my children with homework, and speak with confidence. I no longer feel invisible. I feel seen, capable, and called.",
-    image: "/homeimage/momtwo.png",
+      "I stand here as a living proof that God can pick a 'nobody' from the dust and set them among princes. Before I truly met the Lord, I was a person without direction, lacking both spiritual standards and educational qualifications. However, today in this very community of love, faith and growth Mothers on Mission International (Mom) , God has changed my identity from nobody to somebody. My spiritual growth and maturity , educational qualifications, professions, skills and many others are all by the the grace and mercy of God Almighty through this very commission. Glory to the Lord Almighty",
+    image: "/ceo/chinasa.png",
     year: "2023",
   },
   {
@@ -98,15 +98,11 @@ const stories = [
 const faqs = [
   {
     q: "Who can apply to your programs?",
-    a: "Any mother aged 18 and above residing in Nigeria is eligible. Priority is given to widows, single mothers, and women from low-income households.",
+    a: "Every mothers and potential mothers in Nigeria. We prioritise those facing the greatest barriers to opportunity, but all are welcome to apply.",
   },
   {
     q: "Are the programs free of charge?",
-    a: "Yes. All our core programs are fully funded through donations and grants. Participants only need commitment and a willingness to grow.",
-  },
-  {
-    q: "How long do the programs last?",
-    a: "Program durations range from 3-month intensive workshops to 12-month mentorship journeys, depending on the track.",
+    a: "Yes. All our programs are fully funded through donations and grants. Participants only need commitment and a willingness to grow.",
   },
   {
     q: "How can I support or partner with you?",
@@ -114,7 +110,7 @@ const faqs = [
   },
   {
     q: "Do you operate outside Nigeria?",
-    a: "Our primary focus is Nigeria. We are actively exploring West African expansion partnerships for 2026.",
+    a: "Yes, We are actively exploring Africa and International expansion for 2026.",
   },
 ];
 
@@ -523,7 +519,7 @@ export const Home = () => {
             Trusted partners &amp; supporters
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-50">
-            {["IAWPA", "Feast of Esther", "Workers Assembly", "Scippra Global Resources", "Ford Foundation", "CBN", "NDDC"].map((p) => (
+            {["IAWPA", "Feast of Esther", "Workers Assembly", "Scippra Global Services", "Elect Ladies"].map((p) => (
               <span key={p} className="text-slate-700 font-black text-lg tracking-tight">
                 {p}
               </span>
@@ -533,7 +529,7 @@ export const Home = () => {
       </section>
 
       {/* ── GET INVOLVED ── */}
-      <section className="py-24 bg-blue-700">
+      <section className="py-24 bg-blue-950">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 grid md:grid-cols-3 gap-6">
           {[
             {
@@ -550,7 +546,7 @@ export const Home = () => {
               desc: "Share your time and skills  as a mentor, facilitator, or community ambassador.",
               cta: "Join Us",
               href: "/volunteer",
-              style: "bg-blue-600 border border-white/30 text-white",
+              style: "bg-white text-blue-700",
             },
             {
               icon: "🏢",
@@ -558,7 +554,7 @@ export const Home = () => {
               desc: "Align your company's CSR goals with measurable impact for Nigerian families.",
               cta: "Get in Touch",
               href: "/contact",
-              style: "bg-blue-600 border border-white/30 text-white",
+              style: "bg-white text-blue-700",
             },
           ].map((card) => (
             <div key={card.title} className={`${card.style} rounded-2xl p-8 flex flex-col`}>

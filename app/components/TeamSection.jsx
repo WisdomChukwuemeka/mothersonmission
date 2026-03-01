@@ -49,7 +49,7 @@ export default function TeamSection() {
   return (
     <section className="bg-white py-20 px-10 md:px-16">
    <div className="text-center mb-4">
-        <p className="text-[11px] font-bold tracking-[3px] uppercase text-kblue-light mb-2">
+        <p className="text-[11px] font-bold tracking-[3px] uppercase text-gray-700 mb-2">
           Faces of Mother's on mission
         </p>
         <h2 className="font-playfair text-3xl text-blue-950 md:text-4xl font-extrabold">

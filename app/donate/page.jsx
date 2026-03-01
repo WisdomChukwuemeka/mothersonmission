@@ -7,7 +7,7 @@ const DonatePage = () => {
   const [copied, setCopied] = useState(null);
 
   const details = {
-    ngoName: "MOTHER ON CHRISTIAN MISSION INTERNATIONAL",
+    ngoName: "MOTHERS ON CHRISTIAN MISSION INTERNATIONAL",
     bankName: "FCMB",
     accountNumber: "9491050012"
   };

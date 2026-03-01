@@ -65,17 +65,17 @@ export default function ContactPage() {
               {
                 icon: "📍",
                 title: "Head Office",
-                lines: ["12 Unity Road, Wuse Zone 5", "Abuja, FCT, Nigeria"],
+                lines: ["2 Salvation Close, Off Wamadi, Asonye Street", "Port Harcourt, Rivers State, Nigeria"],
               },
               {
                 icon: "📞",
                 title: "Phone",
-                lines: ["+234 800 123 4567", "Mon – Fri, 8am – 5pm"],
+                lines: ["+234 903 328 1949", "Mon – Fri, 8am – 5pm"],
               },
               {
                 icon: "✉️",
                 title: "Email",
-                lines: ["hello@mnfoundation.org", "programs@mnfoundation.org"],
+                lines: ["mothersonmissioninternational@gmail.com", "Available 24/7"],
               },
               {
                 icon: "🕒",
