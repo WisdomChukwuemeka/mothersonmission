@@ -109,7 +109,7 @@ export default function VolunteerPage() {
                   className="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-emerald-500" />
               </div>
 
-              <button type="submit" className="bg-blue-950 h-fit p-2 w-full rounded-full">Submit Application →</button>
+              <button type="submit" className="bg-blue-950 h-fit p-2 w-full rounded-full text-white">Submit Application →</button>
             </form>
           )}
         </div>
