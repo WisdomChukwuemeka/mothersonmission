@@ -11,6 +11,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { navLinks } from "./data";
+import Image from "next/image";
 
 export default function Footer() {
   const [email, setEmail]       = useState("");
@@ -33,15 +34,18 @@ export default function Footer() {
 
           {/* Column 1 — Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-black text-lg" style={{ fontFamily: "serif" }}>M</span>
-              </div>
-              <div>
-                <p className="font-black text-white text-sm leading-tight">Mothers of the Nation</p>
-                <p className="text-slate-400 text-xs">Foundation</p>
-              </div>
-            </div>
+            <div className="flex items-center mb-4">
+            <div className="mr-1">
+                            <Image
+                              src="/logo/logo.png"
+                              alt="MOM Logo"
+                              width={40}
+                              height={40}
+                            />
+                          </div>
+                          <span className="text-xl font-bold text-white uppercase">MOM</span>
+                  </div>
+              
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
               Developing mothers to become catalysts for change, compassion, and
               national growth. Serving Nigeria since 2009.
@@ -102,7 +106,7 @@ export default function Footer() {
           {/* Column 3 — Contact */}
           <div>
             <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">Contact Us</h4>
-            <ul className="space-y-3 text-sm text-slate-400">
+            {/* <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2">
                 <span className="mt-0.5">📍</span>
                 <span>12 Unity Road, Wuse Zone 5,<br />Abuja, FCT, Nigeria</span>
@@ -119,7 +123,7 @@ export default function Footer() {
                   hello@mnfoundation.org
                 </a>
               </li>
-            </ul>
+            </ul> */}
 
             {/* Social icons */}
             <div className="flex gap-3 mt-5">
