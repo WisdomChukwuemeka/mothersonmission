@@ -28,7 +28,7 @@ export default function VolunteerPage() {
   return (
     <>
       
-
+    <div className="min-h-screen flex flex-col justify-center bg-white">
       {/* ── VOLUNTEER ROLES ─────────────────────────────── */}
       <section className="pt-20  bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
@@ -114,6 +114,7 @@ export default function VolunteerPage() {
           )}
         </div>
       </section>
+      </div>
     </>
   );
 }
