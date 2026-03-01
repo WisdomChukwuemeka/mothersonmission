@@ -68,7 +68,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors whitespace-nowrap"
+                  className="bg-orange-600 hover:bg-orange-500 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors whitespace-nowrap"
                 >
                   Subscribe
                 </button>
@@ -106,24 +106,24 @@ export default function Footer() {
           {/* Column 3 — Contact */}
           <div>
             <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">Contact Us</h4>
-            {/* <ul className="space-y-3 text-sm text-slate-400">
+            <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2">
                 <span className="mt-0.5">📍</span>
-                <span>12 Unity Road, Wuse Zone 5,<br />Abuja, FCT, Nigeria</span>
+                <span>2 Salvation Close, Off Wamadi, Asonye Street,<br />Port Harcourt, Rivers State, Nigeria</span>
               </li>
               <li className="flex items-center gap-2">
                 <span>📞</span>
-                <a href="tel:+2348001234567" className="hover:text-emerald-400 transition-colors">
-                  +234 800 123 4567
+                <a href="tel:+2349033281949" className="hover:text-emerald-400 transition-colors">
+                  +234 903 328 1949
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <span>✉️</span>
-                <a href="mailto:hello@mnfoundation.org" className="hover:text-emerald-400 transition-colors">
-                  hello@mnfoundation.org
+                <a href="mailto:mothersonmissioninternational@gmail.com" className="hover:text-emerald-400 transition-colors">
+                  mothersonmissioninternational@gmail.com
                 </a>
               </li>
-            </ul> */}
+            </ul>
 
             {/* Social icons */}
             <div className="flex gap-3 mt-5">

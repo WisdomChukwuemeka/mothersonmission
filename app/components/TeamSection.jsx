@@ -1,6 +1,7 @@
 const board = [
   { name: "Amb. Vivian Anyanwu", role: "Board Member", img: "ceo/ceo.png" },
   { name: "Amb. Jarlath Anyanwu", role: "Board Member", img: "ceo/ceotwo.png" },
+  { name: "Happiness Chinasa Anyanwu", role: "Board Member", img: "ceo/chinasa.png" },
   { name: "Rev Dr. Emmanuel Ojukwu", role: "Patron", img: "/management/emmanuel.png" },
 ];
 
@@ -57,7 +58,7 @@ export default function TeamSection() {
         <div className="w-14 h-1 bg-orange-600 mx-auto mt-4 rounded-full" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 mb-16 xl:gap-0 justify-center">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16 xl:gap-0 justify-center">
         {board.map((member) => (
           <div key={member.name} className="text-center">
             <img
@@ -65,7 +66,7 @@ export default function TeamSection() {
               alt={member.name}
               className="w-24 h-24 rounded-full object-cover mx-auto mb-3 shadow-sm"
             />
-            <h4 className="text-[12px] font-bold text-kblue uppercase tracking-wide">
+            <h4 className="text-[12px] font-bold text-blue-950 uppercase tracking-wide">
               {member.name}
             </h4>
             <p className="text-[11px] text-gray-500">{member.role}</p>
