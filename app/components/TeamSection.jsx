@@ -1,31 +1,11 @@
 const board = [
-  { name: "Dr. A. Akiyode", role: "Board Member", img: "https://kimpact.org.ng/storage/kimpact-team/board/Dr Akiyode.png" },
-  { name: "Prof. Olu Ogunsakin", role: "Board Member", img: "https://kimpact.org.ng/storage/kimpact-team/board/Professor-Olu-Ogunsakin-e1580836429104.png" },
-  { name: "Prof. Remi Sonaiya", role: "Board Member", img: "https://kimpact.org.ng/storage/kimpact-team/board/Sonaiya.png" },
-  { name: "Ene Ede", role: "Board Member", img: "https://kimpact.org.ng/storage/kimpact-team/board/ene-ede.png" },
-  { name: "Femi Adefila", role: "Board Member", img: "https://kimpact.org.ng/storage/kimpact-team/board/femi-adefila-02 1.png" },
-  { name: "Kehinde Adeniyi", role: "Board Member", img: "https://kimpact.org.ng/storage/kimpact-team/board/kehinde.png" },
+  { name: "Amb. Vivian Anyanwu", role: "Board Member", img: "ceo/ceo.png" },
+  { name: "Amb. Jarlath Anyanwu", role: "Board Member", img: "ceo/ceotwo.png" },
+  { name: "Rev Dr. Emmanuel Ojukwu", role: "Patron", img: "/management/emmanuel.png" },
 ];
 
+
 const management = [
-  {
-  name: "Amb. Vivian Anyanwu",
-  role: "Co-Founder",
-  img: "ceo/ceo.png",
-  bio: "Visionary leader and development advocate, driving strategic growth and empowering mothers and potential mothers through impactful programs and community transformation initiatives.",
-},
-{
-  name: "Amb. Jarlath Anyanwu",
-  role: "Co-Founder",
-  img: "ceo/ceotwo.png",
-  bio: "Strategic leader and community advocate, supporting organizational growth and advancing initiatives that empower mothers, potential mothers and strengthen families.",
-},
-  {
-  name: "Rev Dr. Emmanuel Ojukwu",
-  role: "Patron",
-  img: "/management/emmanuel.png",
-  bio: "Clergy leader and governance advocate, providing strategic guidance and moral support to strengthen families and advance community development initiatives.",
-},
   {
   name: "Vero John David",
   role: "Imo State Coordinator",
@@ -39,29 +19,69 @@ const management = [
   bio: "State coordinator overseeing programs and driving community engagement initiatives across Lagos State.",
 },
   {
-    name: "Onyedikachi Nnenna",
-    role: "Finance",
-    img: "/testimony/nnena.png",
-    bio: "Digital Polymath with a passion for technology and communication. Currently heads the IT Department of KDI.",
-  },
+  name: "Onyedikachi Nnenna",
+  role: "Finance",
+  img: "/testimony/nnena.png",
+  bio: "Finance lead overseeing financial planning, budgeting, and accountability to ensure transparent and sustainable operations.",
+},
+{
+  name: "Success Ukalike",
+  role: "Rivers State Coordinator",
+  img: "/management/success.png",
+  bio: "State coordinator providing leadership and oversight for programs, driving community engagement and impact across Rivers State.",
+},
+{
+  name: "Bibian Nnenna Amah",
+  role: "London Coordinator",
+  img: "/management/bibian.png",
+  bio: "International coordinator leading programs and strengthening community engagement initiatives across London.",
+},
+{
+  name: "Chukudebelu Ugochi",
+  role: "Abuja Coordinator",
+  img: "/management/ugochi.png",
+  bio: "Coordinator overseeing programs and leading community engagement efforts to drive meaningful impact across Abuja.",
+},
 ];
 
 export default function TeamSection() {
   return (
     <section className="bg-white py-20 px-10 md:px-16">
-   
-
-      <div className="text-center mb-12">
-        <p className="text-[11px] font-bold text-gray-500 tracking-[3px] uppercase text-kblue-light mb-2">
+   <div className="text-center mb-4">
+        <p className="text-[11px] font-bold tracking-[3px] uppercase text-kblue-light mb-2">
           Faces of Mother's on mission
         </p>
-        <h2 className="font-playfair text-blue-950 text-3xl md:text-4xl font-extrabold text-kblue">
-          The Board of Directors and Management Team
+        <h2 className="font-playfair text-3xl text-blue-950 md:text-4xl font-extrabold">
+          The Board
         </h2>
-        <div className="w-14 h-1 bg-kgold mx-auto mt-4 rounded-full" />
+        <div className="w-14 h-1 bg-orange-600 mx-auto mt-4 rounded-full" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 mb-16 xl:gap-0 justify-center">
+        {board.map((member) => (
+          <div key={member.name} className="text-center">
+            <img
+              src={member.img}
+              alt={member.name}
+              className="w-24 h-24 rounded-full object-cover mx-auto mb-3 shadow-sm"
+            />
+            <h4 className="text-[12px] font-bold text-kblue uppercase tracking-wide">
+              {member.name}
+            </h4>
+            <p className="text-[11px] text-gray-500">{member.role}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="text-center mb-4">
+    
+        <h2 className="font-playfair text-blue-950 text-3xl md:text-4xl font-extrabold">
+          Management
+        </h2>
+        <div className="w-14 h-1 bg-orange-600 mx-auto mt-4 rounded-full" />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {management.map((m) => (
           <div
             key={m.name}
