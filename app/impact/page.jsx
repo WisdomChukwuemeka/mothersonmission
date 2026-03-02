@@ -392,16 +392,16 @@ function ImpactStoriesSection() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-2 md:gap-4">
+        {/* <div className="hidden md:grid grid-cols-3 gap-2 md:gap-4">
           {Object.entries(impactStories[activeStory].stats).map(([key, value]) => (
             <div key={key} className="bg-white rounded-lg md:rounded-xl p-3 md:p-4 text-center">
-              <p className="text-lg md:text-2xl font-black text-blue-600 truncate">{value}</p>
+              <p className="text-2xl md:text-2xl font-black text-blue-600 ">{value}</p>
               <p className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wider truncate">
                 {key}
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   </div>
