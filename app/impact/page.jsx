@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { gallery } from "../components/data";
 
 // ── Animated counter hook ──────────────────────────────────────────
 function useCountUp(target, duration = 2000, start = false) {
@@ -178,7 +179,7 @@ function ImpactStatCard({ value, suffix, label, prefix, start }) {
   
   return (
     <div className="group p-6 rounded-2xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
-      <p className="text-4xl lg:text-5xl font-black text-white tracking-tight">
+      <p className="text-3xl lg:text-5xl font-black text-white tracking-tight">
         {prefix || ""}{displayValue}{suffix}
       </p>
       <p className="mt-2 text-blue-100 font-medium text-sm uppercase tracking-widest">
@@ -304,86 +305,107 @@ function ImpactStoriesSection() {
   const [activeStory, setActiveStory] = useState(0);
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="text-center mb-16">
-          <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-            Real Stories
-          </span>
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-            Before & After
-          </h2>
-          <p className="text-slate-500 max-w-xl mx-auto">
-            See the tangible transformation in the lives of mothers we've served
-          </p>
+    <section className="py-12 md:py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
+    {/* Header */}
+    <div className="text-center mb-10 md:mb-16">
+      <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+        Real Stories
+      </span>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 mb-4">
+        Before & After
+      </h2>
+      <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base px-4">
+        See the tangible transformation in the lives of mothers we've served
+      </p>
+    </div>
+
+    <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
+      {/* Story selector */}
+      <div className="space-y-3 md:space-y-4 order-2 lg:order-1">
+        {impactStories.map((story, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveStory(i)}
+            className={`w-full text-left p-4 md:p-6 rounded-xl md:rounded-2xl transition-all duration-300 ${
+              activeStory === i 
+                ? "bg-blue-600 text-white shadow-lg" 
+                : "bg-slate-50 text-slate-700 hover:bg-slate-100"
+            }`}
+          >
+            <div className="flex items-center gap-3 md:gap-4">
+              <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden shrink-0">
+                <Image 
+                  src={story.image} 
+                  alt={story.name} 
+                  fill 
+                  className="object-cover"
+                  sizes="(max-width: 768px) 48px, 64px"
+                />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h3 className="font-bold text-base md:text-lg truncate">{story.name}</h3>
+                <p className={`text-xs md:text-sm truncate ${
+                  activeStory === i ? "text-blue-100" : "text-slate-500"
+                }`}>
+                  {story.location} • {story.program}
+                </p>
+              </div>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {/* Active story details */}
+      <div className="bg-slate-50 rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 order-1 lg:order-2">
+        {/* Image */}
+        <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 rounded-xl md:rounded-2xl overflow-hidden mb-4 md:mb-6">
+          <Image
+            src={impactStories[activeStory].image}
+            alt={impactStories[activeStory].name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            priority
+          />
+        </div>
+        
+        {/* Quote */}
+        <blockquote className="text-base md:text-lg lg:text-xl italic text-slate-700 mb-4 md:mb-6 border-l-4 border-blue-500 pl-4 md:pl-6">
+          "{impactStories[activeStory].quote}"
+        </blockquote>
+
+        {/* Before/After Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div className="bg-white p-3 md:p-4 rounded-lg md:rounded-xl">
+            <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Before</p>
+            <p className="text-slate-700 font-medium text-sm md:text-base">
+              {impactStories[activeStory].before}
+            </p>
+          </div>
+          <div className="bg-blue-50 p-3 md:p-4 rounded-lg md:rounded-xl border-2 border-blue-100">
+            <p className="text-xs text-blue-600 uppercase tracking-wider mb-1">After</p>
+            <p className="text-blue-900 font-medium text-sm md:text-base">
+              {impactStories[activeStory].after}
+            </p>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Story selector */}
-          <div className="space-y-4">
-            {impactStories.map((story, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveStory(i)}
-                className={`w-full text-left p-6 rounded-2xl transition-all duration-300 ${
-                  activeStory === i 
-                    ? "bg-blue-600 text-white shadow-lg" 
-                    : "bg-slate-50 text-slate-700 hover:bg-slate-100"
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
-                    <Image src={story.image} alt={story.name} fill className="object-cover" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg">{story.name}</h3>
-                    <p className={`text-sm ${activeStory === i ? "text-blue-100" : "text-slate-500"}`}>
-                      {story.location} • {story.program}
-                    </p>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Active story details */}
-          <div className="bg-slate-50 rounded-3xl p-8">
-            <div className="relative h-65 rounded-2xl overflow-hidden mb-6">
-              <Image
-                src={impactStories[activeStory].image}
-                alt={impactStories[activeStory].name}
-                fill
-                className="object-cover"
-              />
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-2 md:gap-4">
+          {Object.entries(impactStories[activeStory].stats).map(([key, value]) => (
+            <div key={key} className="bg-white rounded-lg md:rounded-xl p-3 md:p-4 text-center">
+              <p className="text-lg md:text-2xl font-black text-blue-600 truncate">{value}</p>
+              <p className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wider truncate">
+                {key}
+              </p>
             </div>
-            
-            <blockquote className="text-xl italic text-slate-700 mb-8 border-l-4 border-blue-500 pl-6">
-              "{impactStories[activeStory].quote}"
-            </blockquote>
-
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="bg-white p-4 rounded-xl">
-                <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Before</p>
-                <p className="text-slate-700 font-medium">{impactStories[activeStory].before}</p>
-              </div>
-              <div className="bg-blue-50 p-4 rounded-xl border-2 border-blue-100">
-                <p className="text-xs text-blue-600 uppercase tracking-wider mb-1">After</p>
-                <p className="text-blue-900 font-medium">{impactStories[activeStory].after}</p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              {Object.entries(impactStories[activeStory].stats).map(([key, value]) => (
-                <div key={key} className="flex-1 bg-white rounded-xl p-4 text-center">
-                  <p className="text-2xl font-black text-blue-600">{value}</p>
-                  <p className="text-xs text-slate-500 uppercase tracking-wider">{key}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }
 
@@ -461,6 +483,110 @@ function ImpactStoriesSection() {
 //     </section>
 //   );
 // }
+
+
+function GallerySection() {
+  return (
+    <section className="py-24 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="inline-flex items-center gap-2 bg-blue-600/10 text-blue-700 text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+            Gallery
+          </span>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+            Moments & Activities
+          </h2>
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+            Capturing the transformative journey of mothers and communities across Nigeria
+          </p>
+        </div>
+
+        {/* Gallery Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {gallery.map((item, index) => (
+            <article
+              key={item.id}
+              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+            >
+              {/* Image Container */}
+              <div className="relative h-64 w-full overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                
+                {/* Overlay linear */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Date Badge */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                  <p className="text-xs font-bold text-slate-800">
+                    {new Date(item.date).toLocaleDateString('en-US', { 
+                      month: 'short', 
+                      day: 'numeric',
+                      year: 'numeric'
+                    })}
+                  </p>
+                </div>
+
+                {/* View Icon */}
+                <div className="absolute bottom-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-150">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                {/* Activity Tag */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-8 h-[2px] bg-blue-600 rounded-full" />
+                  <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
+                    {item.activity}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="font-bold text-xl text-slate-900 mb-3 group-hover:text-blue-700 transition-colors duration-300 line-clamp-2">
+                  {item.title}
+                </h3>
+
+                {/* Location */}
+                <div className="flex items-center gap-2 text-slate-500 text-sm">
+                  <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <span className="font-medium">{item.location}</span>
+                </div>
+              </div>
+
+              {/* Bottom Accent Line */}
+              <div className="h-1 bg-linear-to-r from-blue-600 to-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+            </article>
+          ))}
+        </div>
+
+        {/* View All Button */}
+        <div className="mt-16 text-center">
+          <button className="inline-flex items-center gap-3 bg-white border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-600 hover:text-white text-slate-700 font-bold px-8 py-4 rounded-full transition-all duration-300 group">
+            <span>View All Activities</span>
+            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // ── Geographic Reach Section ───────────────────────────────────────
 function GeographicReach() {
@@ -586,6 +712,7 @@ export default function ImpactReportPage() {
       <SuccessMetricsSection />
       <ImpactStoriesSection />
       <GeographicReach />
+      <GallerySection />
       {/* <FinancialTransparency /> */}
       <ImpactCTA />
 

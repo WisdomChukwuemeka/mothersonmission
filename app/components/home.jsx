@@ -192,7 +192,7 @@ function StatCard({ value, suffix, label, start }) {
 // ── Main Component ─────────────────────────────────────────────────
 export const Home = () => {
   const [activeStory, setActiveStory] = useState(0);
-  const [expanded, setExpanded] = useState(null);
+  const [expanded, setExpanded] = useState({});
 
   return (
     <div className="w-full bg-white font-sans antialiased">
@@ -481,9 +481,9 @@ export const Home = () => {
           </div>
 
           {/* Story cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+       <div className="grid md:grid-cols-3 gap-6 items-start">
   {stories.map((s, i) => {
-    const isExpanded = expanded === i;
+    const isExpanded = expanded[i];
 
     return (
       <div
@@ -499,13 +499,17 @@ export const Home = () => {
           </div>
         </div>
 
-        {/* Toggle Quote */}
         <p className="text-slate-600 text-sm leading-relaxed italic">
           "{isExpanded ? s.quote : s.quoteone}"
         </p>
 
         <span
-          onClick={() => setExpanded(isExpanded ? null : i)}
+          onClick={() =>
+            setExpanded(prev => ({
+              ...prev,
+              [i]: !prev[i],
+            }))
+          }
           className="text-blue-500 font-bold text-sm cursor-pointer inline-block mt-3"
         >
           {isExpanded ? "View less" : "View more"}
