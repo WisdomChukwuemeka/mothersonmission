@@ -70,26 +70,28 @@ const programs = [
 // ── Stories data ───────────────────────────────────────────────────
 const stories = [
   {
-    name: "Onyedikachi Ogbonna",
-    role: "Accounatant • Port Harcourt",
-    quote: "As a single woman seeking growth, purpose, and belonging, i found a welcoming and empowering community in Mothers on Mission International. The organization helped strengthen my faith, clarify my identity, and embrace my current season without pressure. Beyond my personal experience, i have seen lives, marriages, and families transformed. i describes it as a safe, nurturing space that uplifts and equips women in every stage of life",
-    image: "/testimony/nnena.png",
+    name: "Nnenna Ogbonna",
+    // role: "Accountant • Port Harcourt",
+    quote: "As a single lady, I once wondered if there was a space where I could truly grow, belong, and be equipped without feeling overlooked or pressured into a particular season of life. I longed for a community that understood that purpose, faith, and growth are not reserved for marriage alone. Joining Mothers on Mission International changed that perspective completely. From the onset, it became clear that this is a community created for every woman—single or married—meeting us exactly where we are. Through this forum, I have been strengthened in my faith, refined in my thinking, and encouraged to live intentionally in my current season. I have gained clarity about purpose, identity, and the importance of becoming whole, prepared, and grounded as a woman. Beyond my personal experience, I have witnessed how lives have been positively impacted across different stages of life—marriages strengthened, women encouraged, and families transformed through shared teachings, prayers, and genuine sisterhood. Mothers on Mission International is more than a community; it is a safe space where women are nurtured, empowered, and equipped to live on mission, regardless of their marital status. I am deeply grateful for the vision, the leadership, and the opportunity to be part of a forum that truly values and uplifts women in every season.",
+    quoteone: "As a single woman seeking purpose and belonging, I found a nurturing and empowering community in Mothers on Mission International. It strengthened my faith, clarified my identity, and helped me embrace my season with confidence. I have also witnessed lives and families transformed through this commission.",
+    image: "/testimony/nnenaone.png",
     year: "2022",
   },
   {
     name: "Happiness Chinasa Anyanwu",
-    role: "Secretary",
+    // role: "Secretary",
+    quoteone: "God transformed my life through Mothers on Mission International. From lacking direction and confidence, I have grown spiritually, academically, and professionally. This community of faith and love reshaped my identity and gave me a renewed sense of purpose. Glory to God for this journey of transformation.",
     quote:
       "I stand here as a living proof that God can pick a 'nobody' from the dust and set them among princes. Before I truly met the Lord, I was a person without direction, lacking both spiritual standards and educational qualifications. However, today in this very community of love, faith and growth Mothers on Mission International (Mom) , God has changed my identity from nobody to somebody. My spiritual growth and maturity , educational qualifications, professions, skills and many others are all by the the grace and mercy of God Almighty through this very commission. Glory to the Lord Almighty",
-    image: "/ceo/chinasa.png",
+    image: "/ceo/chinasaone.png",
     year: "2023",
   },
   {
-    name: "Ngozi Eze",
-    role: "Participant, Leadership & Advocacy • Enugu",
-    quote:
-      "I joined as a quiet mother who avoided public speaking. During the leadership sessions, I realised that my voice matters in my community. Today, I serve in my ward and advocate for clean water and safer schools. I now understand that leadership is not about position it is about obedience to purpose. This foundation helped me step into mine.",
-    image: "/homeimage/momtwo.png",
+    name: "Lilian Anyanwu",
+    // role: "",
+    quoteone: "Through the guidance and teachings in Mothers on Mission International, I gained both spiritual and financial empowerment. Inspired to invest despite limited knowledge, I stepped out in faith and saw remarkable growth. This commission equips women spiritually, emotionally, and financially for lasting impact.",
+    quote: "Praise God, i want to appreciate God for using our leader to inspire or feed us not just spiritual but also physical. During one of our offline gathering, our lead pastor was speaking about self empowerment/development, while the teaching was going on, she made mention of buying shares, but before that period , i was having the zeal to buy shares but i lack knowledge on how to go about it. Her teaching prompted me into seeking for knowledge which i later got from a platform on facebook. After aquiring basic training on shares, i went ahead to buy a particular share with 12,000 naira. To cut the long story short, the share i bought for 12,000 naira appreciated to 79,000 naira within a period of few months. Am glad to announce that, here in mother's on mission, we are well equipped both spiritual, emotionally, financially and maritally.",
+    image: "/testimony/lilianone.png",
     year: "2024",
   },
 ];
@@ -190,6 +192,7 @@ function StatCard({ value, suffix, label, start }) {
 // ── Main Component ─────────────────────────────────────────────────
 export const Home = () => {
   const [activeStory, setActiveStory] = useState(0);
+  const [expanded, setExpanded] = useState(null);
 
   return (
     <div className="w-full bg-white font-sans antialiased">
@@ -478,34 +481,39 @@ export const Home = () => {
           </div>
 
           {/* Story cards */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {stories.map((s, i) => (
-              <div
-                key={i}
-                onClick={() => setActiveStory(i)}
-                className={`cursor-pointer rounded-2xl p-6 border-2 transition-all duration-300 ${
-                  activeStory === i
-                    ? " bg-white shadow-xl hover:border-blue-200"
-                    : "border-transparent bg-white hover:border-blue-200 shadow-sm hover:shadow-md"
-                }`}
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative w-14 h-14 rounded-full overflow-hidden bg-blue-100 shrink-0">
-                    <Image src={s.image} alt={s.name} fill className="object-cover" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-slate-800">{s.name}</p>
-                    <p className="text-slate-500 text-xs">{s.role}</p>
-                  </div>
-                </div>
-                <p className="text-slate-600 text-sm leading-relaxed italic">"{s.quote}"</p>
-                <div className="mt-4 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                  <span className="text-blue-600 text-xs font-semibold">Program Graduate {s.year}</span>
-                </div>
-              </div>
-            ))}
+        <div className="grid md:grid-cols-3 gap-6">
+  {stories.map((s, i) => {
+    const isExpanded = expanded === i;
+
+    return (
+      <div
+        key={i}
+        className="rounded-2xl p-6 border-2 bg-white shadow-sm hover:shadow-md transition-all duration-300"
+      >
+        <div className="flex items-center gap-4 mb-4">
+          <div className="relative w-14 h-14 rounded-full overflow-hidden bg-blue-100 shrink-0">
+            <Image src={s.image} alt={s.name} fill className="object-cover" />
           </div>
+          <div>
+            <p className="font-bold text-slate-800">{s.name}</p>
+          </div>
+        </div>
+
+        {/* Toggle Quote */}
+        <p className="text-slate-600 text-sm leading-relaxed italic">
+          "{isExpanded ? s.quote : s.quoteone}"
+        </p>
+
+        <span
+          onClick={() => setExpanded(isExpanded ? null : i)}
+          className="text-blue-500 font-bold text-sm cursor-pointer inline-block mt-3"
+        >
+          {isExpanded ? "View less" : "View more"}
+        </span>
+      </div>
+    );
+  })}
+</div>
         </div>
       </section>
 

@@ -91,25 +91,25 @@ const successMetrics = [
 // ── Testimonial data ───────────────────────────────────────────────
 const impactStories = [
   {
-    name: "Onyedikachi Ogbonna",
+    name: "Nnenna Ogbonna",
     location: "Port Harcourt, Rivers State",
-    program: "Leadership & Personal Development",
+    // program: "Leadership & Personal Development",
     before: "Struggling with self confidence and direction",
     after: "Now serving as leader",
     quote: "This organization didn't just teach me skills, it helped me discover my purpose. I went from hiding in the background to standing before my community with confidence.",
-    image: "/testimony/nnena.png",
+    image: "/testimony/nnenaone.png",
     stats: { income: "+150%", confidence: "Transformed", network: "200+ women" }
   },
   {
-    name: "Fatima Al-Hassan",
-    location: "Kano State",
-    program: "Literacy & Vocational Training",
-    before: "Illiterate, dependent on family for basic transactions",
-    after: "Runs successful tailoring business, employs 3 apprentices",
-    quote: "For 40 years I felt invisible because I couldn't read. Today I sign my own contracts and teach other women to sew. My children are proud of me.",
-    image: "/homeimage/momtwo.png",
-    stats: { income: "+300%", literacy: "Advanced", employees: "3 women" }
-  },
+  name: "Lilian Anyanwu",
+  location: "Port Harcourt, Rivers State",
+//   program: "Women Empowerment & Financial Development",
+  before: "Had limited financial knowledge and lacked confidence to invest",
+  after: "Became financially informed and successfully invested with significant returns",
+  quote: "The teachings I received gave me the courage to pursue financial knowledge and take bold steps. What started as a small investment became a testimony of growth and empowerment.",
+  image: "/testimony/lilianone.png",
+  stats: { investment_growth: "+550%", empowerment: "Financially Confident", impact: "Inspired Others" }
+},
   {
     name: "Favour Chukwuemeka",
     location: "Port Harcourt, Rivers State",
@@ -117,9 +117,19 @@ const impactStories = [
     before: "Stay at home woman with no community involvement",
     after: "Became a leading advocate for mothers and potential mothers in my community",
     quote: "I thought leadership was for politicians with degrees. Now I know that a woman's voice is the most powerful tool for community change.",
-    image: "/homeimage/favour.png",
+    image: "/testimony/favour.png",
     stats: { reach: "1,000+ people", advocacy: "Active", confidence: "Skyrocketed" }
-  }
+  },
+  {
+  name: "Happiness Chinasa Anyanwu",
+  location: "Port Harcourt, Rivers State",
+  // program: "Spiritual & Personal Development",
+  before: "Lacked direction, confidence, and clear educational and spiritual foundation",
+  after: "Grew spiritually, academically, and professionally with renewed purpose",
+  quote: "God transformed my life through this commission. From feeling like a nobody without direction, I have grown in faith, education, and confidence. Today I stand secure in my identity and purpose, all by His grace.",
+  image: "/ceo/chinasaone.png",
+  stats: { growth: "Spiritual & Academic", identity: "Renewed", confidence: "Transformed" }
+},
 ];
 
 // ── Financial transparency data ────────────────────────────────────
@@ -343,7 +353,7 @@ function ImpactStoriesSection() {
                 src={impactStories[activeStory].image}
                 alt={impactStories[activeStory].name}
                 fill
-                className="object-contain"
+                className="object-cover"
               />
             </div>
             

@@ -1,7 +1,7 @@
 const board = [
   { name: "Amb. Vivian Anyanwu", role: "Board Member", img: "ceo/ceo.png" },
   { name: "Amb. Jarlath Anyanwu", role: "Board Member", img: "ceo/ceotwo.png" },
-  { name: "Happiness Chinasa Anyanwu", role: "Board Member", img: "ceo/chinasa.png" },
+  { name: "Happiness Chinasa Anyanwu", role: "Board Member", img: "ceo/chinasaone.png" },
   { name: "Rev Dr. Emmanuel Ojukwu", role: "Patron", img: "/management/emmanuel.png" },
 ];
 
@@ -20,9 +20,9 @@ const management = [
   bio: "State coordinator overseeing programs and driving community engagement initiatives across Lagos State.",
 },
   {
-  name: "Onyedikachi Nnenna",
-  role: "Finance",
-  img: "/testimony/nnena.png",
+  name: "Nnenna Ogbonna",
+  role: "Head of Finance",
+  img: "/testimony/nnenaone.png",
   bio: "Finance lead overseeing financial planning, budgeting, and accountability to ensure transparent and sustainable operations.",
 },
 {
