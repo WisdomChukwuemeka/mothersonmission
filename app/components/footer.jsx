@@ -128,7 +128,7 @@ export default function Footer() {
             {/* Social icons */}
         <div className="flex gap-3 mt-5">
   {[
-    { label: "Facebook", icon: "facebook", href: "#" },
+    { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/mominternational.org/" },
     { label: "Twitter/X", icon: "twitter-x", href: "#" },
     { label: "Instagram", icon: "instagram", href: "#" },
     { label: "LinkedIn", icon: "linkedin", href: "#" },
