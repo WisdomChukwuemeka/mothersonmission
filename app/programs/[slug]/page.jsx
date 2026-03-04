@@ -11,8 +11,7 @@ import { useParams } from "next/navigation";
 const programs = {
   "economic-empowerment": {
     title: "Economic Empowerment",
-    image: "/programs/economic.jpg",
-    content: `
+    image: "/programs/empowerment.png",    content: `
       Our Economic Empowerment program provides mothers with practical 
       vocational skills, entrepreneurship mentorship, and access to small 
       business funding.
@@ -27,7 +26,7 @@ const programs = {
 
   "education-literacy": {
     title: "Education & Literacy",
-    image: "/programs/education.jpg",
+    image: "/programs/education.png",
     content: `
       We provide adult literacy classes for mothers who were unable to
       complete formal education.
@@ -39,7 +38,7 @@ const programs = {
 
   "health-wellness": {
     title: "Health & Wellness",
-    image: "/programs/health.jpg",
+    image: "/programs/health.png",
     content: `
       This program focuses on maternal healthcare, nutrition, and mental
       wellness support.
@@ -51,7 +50,7 @@ const programs = {
 
   "leadership-advocacy": {
     title: "Leadership & Advocacy",
-    image: "/programs/leadership.jpg",
+    image: "/programs/leadership.png",
     content: `
       Leadership training equips mothers to take active roles in community
       development and governance.

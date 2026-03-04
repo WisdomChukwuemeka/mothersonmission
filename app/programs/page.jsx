@@ -13,28 +13,27 @@ const programs = [
     title: "Economic Empowerment",
     description:
       "Equipping mothers with vocational skills, business training, and access to micro-finance.",
-    image: "/programs/economic.jpg",
+    image: "/programs/empowerment.png",
   },
   {
     slug: "education-literacy",
     title: "Education & Literacy",
     description:
       "Adult literacy classes and scholarships that help mothers guide their families academically.",
-    image: "/programs/education.jpg",
+    image: "/programs/education.png",
   },
   {
     slug: "health-wellness",
     title: "Health & Wellness",
     description:
       "Maternal health clinics, nutrition support, and mental wellness awareness programs.",
-    image: "/programs/health.jpg",
-  },
+image: "/programs/health.png",  },
   {
     slug: "leadership-advocacy",
     title: "Leadership & Advocacy",
     description:
       "Leadership training that empowers mothers to influence policy and community development.",
-    image: "/programs/leadership.jpg",
+    image: "/programs/leadership.png",
   },
 ];
 
@@ -75,7 +74,7 @@ export default function ProgramsPage() {
               </div>
 
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-3">
+                <h2 className="text-2xl text-black font-bold mb-3">
                   {program.title}
                 </h2>
                 <p className="text-slate-600 mb-5">
