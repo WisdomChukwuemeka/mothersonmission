@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./globals.css";
 import { Header } from "./components/header";
 import Footer from "./components/footer";

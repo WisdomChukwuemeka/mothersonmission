@@ -43,7 +43,7 @@ export default function ContactPage() {
       <Contact
         badge="Contact Us"
         title="We'd love to hear from you."
-        subtitle="Whether you want to apply, donate, volunteer, or partner — get in touch and our team will respond within 48 hours."
+        subtitle="Whether you want to apply, donate, volunteer, or partner  get in touch and our team will respond within 48 hours."
       />
 
       {/* ── CONTACT GRID ───────────────────────────────── */}
@@ -56,7 +56,7 @@ export default function ContactPage() {
               <SectionLabel text="Get In Touch" />
               <h2 className="text-2xl font-black text-slate-900 mb-2">Contact information</h2>
               <p className="text-slate-500 text-sm leading-relaxed">
-                Our team is based in Abuja with field offices across Nigeria.
+                Our team is based across Nigeria with field offices across the country.
               </p>
             </div>
 

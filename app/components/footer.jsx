@@ -48,7 +48,7 @@ export default function Footer() {
               
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
               Developing mothers to become catalysts for change, compassion, and
-              national growth. Serving Nigeria since 2009.
+              national growth. Serving Nigeria since 2016.
             </p>
 
             {/* Newsletter */}
@@ -126,23 +126,24 @@ export default function Footer() {
             </ul>
 
             {/* Social icons */}
-            <div className="flex gap-3 mt-5">
-              {[
-                { label: "Facebook", icon: "f", href: "#" },
-                { label: "Twitter/X", icon: "x", href: "#" },
-                { label: "Instagram", icon: "in", href: "#" },
-                { label: "LinkedIn", icon: "li", href: "#" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="w-9 h-9 bg-slate-800 hover:bg-emerald-700 rounded-lg flex items-center justify-center text-xs font-bold text-slate-400 hover:text-white transition-all duration-200"
-                >
-                  {s.icon}
-                </a>
-              ))}
-            </div>
+        <div className="flex gap-3 mt-5">
+  {[
+    { label: "Facebook", icon: "facebook", href: "#" },
+    { label: "Twitter/X", icon: "twitter-x", href: "#" },
+    { label: "Instagram", icon: "instagram", href: "#" },
+    { label: "LinkedIn", icon: "linkedin", href: "#" },
+  ].map((s) => (
+    <a
+      key={s.label}
+      href={s.href}
+      aria-label={s.label}
+      className="w-9 h-9 bg-slate-800 hover:bg-emerald-700 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-all duration-200"
+    >
+      <i className={`bi bi-${s.icon}`}></i>
+    </a>
+  ))}
+</div>
+
           </div>
         </div>
       </div>
