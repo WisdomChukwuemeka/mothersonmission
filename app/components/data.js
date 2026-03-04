@@ -77,10 +77,10 @@ export const gallery = [{
 
 // ── Impact statistics (shown on homepage & about page) ────
 export const stats = [
-  { value: 4800, suffix: "+",   label: "Mothers Empowered" },
-  { value: 32,   suffix: "",    label: "States Reached" },
-  { value: 120,  suffix: "+",   label: "Community Programs" },
-  { value: 15,   suffix: "yrs", label: "Of Impact" },
+  { value: 4500, suffix: "+",   label: "Mothers Empowered" },
+  { value: 7,   suffix: "+",    label: "States Reached" },
+  { value: 40,  suffix: "+",   label: "Community Programs" },
+  { value: 10,   suffix: "yrs", label: "Of Impact" },
 ];
 
 // ── Four program pillars ───────────────────────────────────
