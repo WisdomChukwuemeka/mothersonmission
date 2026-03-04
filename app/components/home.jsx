@@ -383,7 +383,7 @@ export const Home = () => {
   {programs.map((p) => (
     <div
       key={p.title}
-      className="relative rounded-2xl overflow-hidden flex flex-col justify-end min-h-[280px] group hover:-translate-y-2 transition-all duration-300"
+      className="relative rounded-2xl overflow-hidden flex flex-col justify-end min-h-70 group hover:-translate-y-2 transition-all duration-300"
       style={{
         backgroundImage: `url(${p.image})`,
         backgroundSize: "cover",

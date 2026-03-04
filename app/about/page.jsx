@@ -198,7 +198,7 @@ export default function AboutPage() {
             </p>
           </header>
           <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            {partners.map((partner) => (
+            {["IAWPA", "Feast of Esther", "Workers Assembly", "Scippra Global Services", "Elect Ladies"].map((partner) => (
               <span 
                 key={partner} 
                 className="text-slate-700 font-semibold text-lg tracking-tight"
