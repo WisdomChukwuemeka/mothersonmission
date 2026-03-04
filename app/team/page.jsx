@@ -6,7 +6,7 @@ import { useState } from "react";
 const board = [
   { name: "Amb. Vivian Anyanwu", role: "Board Member", img: "/ceo/ceo.png" },
   { name: "Amb. Jarlath Anyanwu", role: "Board Member", img: "/ceo/ceotwo.png" },
-  { name: "Happiness Chinasa Anyanwu", role: "Board Member", img: "/ceo/chinasa.png" },
+  { name: "Happiness Chinasa Anyanwu", role: "Board Member", img: "/ceo/chinasaone.png" },
   { name: "Rev Dr. Emmanuel Ojukwu", role: "Patron", img: "/management/emmanuel.png" },
 ];
 
@@ -26,7 +26,7 @@ const management = [
   {
     name: "Onyedikachi Nnenna",
     role: "Finance",
-    img: "/testimony/nnena.png",
+    img: "/testimony/nnenaone.png",
     bio: "Finance lead overseeing financial planning, budgeting, and accountability to ensure transparent and sustainable operations.",
   },
   {
@@ -106,7 +106,7 @@ export default function TeamPage() {
                       src={member.img}
                       alt={member.name}
                       fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all"
+                      className="object-cover transition-all"
                       sizes="96px"
                     />
                   </div>
@@ -123,11 +123,11 @@ export default function TeamPage() {
       {/* Popup Modal */}
       {activeMember && (
         <div 
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          className="min-h-screen fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
           onClick={() => setActiveMember(null)}
         >
           <div 
-            className="bg-blue-900 text-white rounded-lg p-6 max-w-sm w-full relative"
+            className="bg-blue-900 text-white min-h-1/3 rounded-lg p-6 max-w-xl w-full relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button 
@@ -137,20 +137,14 @@ export default function TeamPage() {
               ✕
             </button>
             
-            <h3 className="text-xl font-bold mb-1">{activeMember.name}</h3>
-            <p className="text-blue-200 text-sm mb-4">{activeMember.role}</p>
+            <h3 className="text-xl md:text-3xl font-bold mb-1">{activeMember.name}</h3>
+            <p className="text-blue-200 text-sm md:text-xl  mb-4">{activeMember.role}</p>
             
             <div className="flex gap-3 mb-4">
-              <a href="#" className="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-white/20">
-                <span className="text-sm">in</span>
-              </a>
-              <a href="#" className="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-white/20">
-                <span className="text-sm">✉</span>
-              </a>
             </div>
             
             {activeMember.bio && (
-              <p className="text-sm text-blue-100 leading-relaxed">
+              <p className="text-sm md:text-xl text-blue-100 leading-relaxed">
                 {activeMember.bio}
               </p>
             )}
