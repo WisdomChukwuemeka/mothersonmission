@@ -45,7 +45,7 @@ export const metadata = {
   authors: [
     {
       name: "Mothers on Mission International",
-      url: "https://mominternational.org",
+      url: "https://www.mominternational.org",
     },
   ],
 

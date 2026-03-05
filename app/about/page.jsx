@@ -18,6 +18,44 @@ import { FaStar } from "react-icons/fa";
 export const metadata = {
   title: "About Us | Mothers of the Nation Foundation",
   description: "Learn about our history, mission, and impact. Since 2016, we've reached 4,800+ mothers across 32 states in Nigeria through education, economic empowerment, and community development.",
+  keywords: [
+    "about Mothers on Mission International",
+    "women empowerment Nigeria",
+    "Nigerian mothers support",
+    "Amb Vivian Anyanwu",
+    "Amb Jarlath Anyanwu",
+    "women education programs Nigeria",
+  ],
+
+  alternates: {
+    canonical: "https://www.mominternational.org/about",
+  },
+
+  openGraph: {
+    title: "About Mothers on Mission International",
+    description:
+      "Discover the story, mission, and national impact of Mothers on Mission International empowering thousands of Nigerian mothers.",
+    url: "https://www.mominternational.org/about",
+    siteName: "Mothers on Mission International",
+    images: [
+      {
+        url: "/ceo/ceo.png",
+        width: 1200,
+        height: 630,
+        alt: "Founders of Mothers on Mission International",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "About Mothers on Mission International",
+    description:
+      "Learn how Mothers on Mission International empowers Nigerian mothers through education, economic empowerment, and community development.",
+    images: ["/ceo/ceo.png"],
+  },
 };
 
 export default function AboutPage() {

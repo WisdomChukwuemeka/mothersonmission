@@ -25,7 +25,7 @@ const DonatePage = () => {
         <span className="text-xl font-bold text-gray-900 break-all">{value}</span>
         <button
           onClick={() => copyToClipboard(value, field)}
-          className="flex-shrink-0 p-3 bg-gray-100 rounded-full active:bg-gray-200 transition-colors"
+          className="shrink-0 p-3 bg-gray-100 rounded-full active:bg-gray-200 transition-colors"
         >
           {copied === field ? (
             <Check className="w-5 h-5 text-green-600" />
