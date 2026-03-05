@@ -189,74 +189,114 @@ function StatCard({ value, suffix, label, start }) {
   );
 }
 
+const heroImages = [
+  "/homeimage/heri.png",
+  "/homeimage/mom.png", 
+  "/homeimage/momthree.png", 
+];
+
 // ── Main Component ─────────────────────────────────────────────────
 export const Home = () => {
   const [activeStory, setActiveStory] = useState(0);
   const [expanded, setExpanded] = useState({});
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-rotate images every 30 seconds with gentle transition
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 30000); // 30 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="w-full bg-white font-sans antialiased">
 
            {/* ── HERO ── */}
       <section className="relative min-h-150 md:min-h-175 lg:min-h-200 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/homeimage/heri.png"
-            alt="Mothers of the Nation"
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="100vw"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/70 to-black/40" />
-        </div>
+  {/* Background Images with Crossfade */}
+  <div className="absolute inset-0">
+    {heroImages.map((src, index) => (
+      <Image
+        key={src}
+        src={src}
+        alt="Mothers of mission international"
+        fill
+        className={`object-cover object-center transition-opacity duration-3000 ease-in-out ${
+          index === currentImageIndex ? "opacity-100" : "opacity-0"
+        }`}
+        priority={index === 0}
+        sizes="100vw"
+      />
+    ))}
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/70 to-black/40" />
+  </div>
 
-        {/* Decorative blobs */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <div className="absolute top-10 left-0 w-80 h-80 bg-blue-400 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-400 rounded-full blur-3xl" />
-        </div>
+  {/* Decorative blobs */}
+  <div className="absolute inset-0 opacity-20 pointer-events-none">
+    <div className="absolute top-10 left-0 w-80 h-80 bg-blue-400 rounded-full blur-3xl animate-pulse" />
+    <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-400 rounded-full blur-3xl animate-pulse" />
+  </div>
 
-        {/* Floating badge - hidden on small screens */}
-        <div className="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3 hidden md:flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse" />
-          <span className="text-white text-sm font-medium">Empowering Nigeria's Mothers Since 2016</span>
-        </div>
+  {/* Floating badge - hidden on small screens */}
+  <div className="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3 hidden md:flex items-center gap-3">
+    <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse" />
+    <span className="text-white text-sm font-medium">Empowering Nigeria's Mothers Since 2016</span>
+  </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 h-full min-h-150 md:min-h-175 lg:min-h-200 flex items-center">
-          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-10 py-20 md:py-0">
-            <p className="text-orange-300 font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] mb-3 md:mb-4">
-              MOTHERS ON MISSION INTERNATIONAL
-            </p>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.15] max-w-2xl">
-              Developing mothers & potential mothers to become{" "}
-              <span className="text-orange-300 italic">catalysts</span>
-              {" "}for change, compassion &amp; national growth.
-            </h1>
-            <p className="mt-4 md:mt-5 text-white/80 max-w-lg text-sm sm:text-base md:text-lg leading-relaxed">
-              We walk alongside Nigerian mothers, equipping, elevating, and
-              empowering them to transform their families and communities.
-            </p>
-            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link
-                href="/programs"
-                className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl shadow-lg shadow-blue-900/30 transition-all duration-200 text-center"
-              >
-                See Our Programs
-              </Link>
-              <Link
-                href="/about"
-                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white font-semibold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl transition-all duration-200 text-center"
-              >
-                What We Do
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+  {/* Hero Content */}
+  <div className="relative z-10 h-full min-h-150 md:min-h-175 lg:min-h-200 flex items-center">
+    <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-10 py-20 md:py-0">
+      <p className="text-orange-300 font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] mb-3 md:mb-4">
+        MOTHERS ON MISSION INTERNATIONAL
+      </p>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.15] max-w-2xl">
+        Developing mothers & potential mothers to become{" "}
+        <span className="text-orange-300 italic">catalysts</span>
+        {" "}for change, compassion &amp; national growth.
+      </h1>
+      <p className="mt-4 md:mt-5 text-white/80 max-w-lg text-sm sm:text-base md:text-lg leading-relaxed">
+        We walk alongside Nigerian mothers, equipping, elevating, and
+        empowering them to transform their families and communities.
+      </p>
+      <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <Link
+          href="/programs"
+          className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl shadow-lg shadow-blue-900/30 transition-all duration-200 text-center"
+        >
+          See Our Programs
+        </Link>
+        <Link
+          href="/about"
+          className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white font-semibold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl transition-all duration-200 text-center"
+        >
+          What We Do
+        </Link>
+      </div>
+    </div>
+  </div>
+
+  {/* Optional: Image indicators */}
+  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+    {heroImages.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentImageIndex(index)}
+        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+          index === currentImageIndex 
+            ? "bg-white w-6" 
+            : "bg-white/40 hover:bg-white/60"
+        }`}
+        aria-label={`Go to slide ${index + 1}`}
+      />
+    ))}
+  </div>
+</section>
+
+
 
       {/* ── MARQUEE ── */}
       <div className="bg-blue-600 py-3 overflow-hidden">
