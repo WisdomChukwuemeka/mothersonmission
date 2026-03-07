@@ -150,14 +150,14 @@ export default function Footer() {
 
       {/* ── BOTTOM BAR ────────────────────────────────────── */}
       <div className="border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-5 flex flex-col sm:flex-row items-center justify-center gap-3">
           <p className="text-slate-500 text-xs">
-            © {new Date().getFullYear()} Mothers of the Nation Foundation. All rights reserved.
+            © {new Date().getFullYear()} developed by Scippra team. All rights reserved.
           </p>
-          <div className="flex gap-5">
+          {/* <div className="flex gap-5">
             <Link href="#" className="text-slate-500 hover:text-slate-300 text-xs transition-colors">Privacy Policy</Link>
             <Link href="#" className="text-slate-500 hover:text-slate-300 text-xs transition-colors">Terms of Use</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
