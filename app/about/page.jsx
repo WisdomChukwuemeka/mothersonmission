@@ -16,14 +16,14 @@ import { PageHero, SectionLabel, AnimatedCounter } from "../components/UI";
 import { FaStar } from "react-icons/fa";
 
 export const metadata = {
-  title: "About Us | Mothers of the Nation Foundation",
+  title: "About Us | Mothers on Christian Mission International",
   description: "Learn about our history, mission, and impact. Since 2016, we've reached 4,800+ mothers across 32 states in Nigeria through education, economic empowerment, and community development.",
   keywords: [
-    "about Mothers on Mission International",
+    "about Mothers on Christian Mission International, Amb. Vivian and Amb. Jarlath Anyanwu",
     "women empowerment Nigeria",
     "Nigerian mothers support",
     "Amb Vivian Anyanwu",
-    "Amb Jarlath Anyanwu",
+    "Amb Amb. Jarlath Anyanwu",
     "women education programs Nigeria",
   ],
 
@@ -32,17 +32,17 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "About Mothers on Mission International",
+    title: "About Mothers on Christian Mission International, Amb. Vivian and Amb. Jarlath Anyanwu",
     description:
-      "Discover the story, mission, and national impact of Mothers on Mission International empowering thousands of Nigerian mothers.",
+      "Discover the story, mission, and national impact of Mothers on Christian Mission International, Amb. Vivian and Amb. Jarlath Anyanwu empowering thousands of Nigerian mothers.",
     url: "https://www.mominternational.org/about",
-    siteName: "Mothers on Mission International",
+    siteName: "Mothers on Christian Mission International, Amb. Vivian and Amb. Jarlath Anyanwu",
     images: [
       {
         url: "/ceo/ceo.png",
         width: 1200,
         height: 630,
-        alt: "Founders of Mothers on Mission International",
+        alt: "Founders of Mothers on Christian Mission International, Amb. Vivian and Amb. Jarlath Anyanwu",
       },
     ],
     locale: "en_US",
@@ -51,9 +51,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "About Mothers on Mission International",
+    title: "About Mothers on Christian Mission International, Amb. Vivian and Amb. Jarlath Anyanwu",
     description:
-      "Learn how Mothers on Mission International empowers Nigerian mothers through education, economic empowerment, and community development.",
+      "Learn how Mothers on Christian Mission International, Amb. Vivian and Amb. Jarlath Anyanwu empowers Nigerian mothers through education, economic empowerment, and community development.",
     images: ["/ceo/ceo.png"],
   },
 };
@@ -85,22 +85,22 @@ export default function AboutPage() {
                   <figure className="m-0">
                     <Image
                       src="/ceo/ceo.png"
-                      alt="Ambassadors Vivian and Jarlath Anyanwu, Founders of Mothers of the Nation Foundation"
+                      alt="Ambassadors Vivian and Amb. Jarlath Anyanwu, Founders of Mothers of the Nation Foundation"
                       width={300}
                       height={300}
                       className="rounded-2xl object-cover shadow-lg"
                       priority
                     />
                     <figcaption className="mt-2 text-xs text-slate-500 text-center font-medium">
-                      Amb. Vivian & Jarlath Anyanwu, Co-Founders
+                      Amb. Vivian & Amb. Jarlath Anyanwu, Co-Founders
                     </figcaption>
                   </figure>
                 </div>
 
                 <p>
-                  Mothers on Mission International (MOM) was established in 2016 by 
-                  <strong> Amb. Vivian Anyanwu</strong> and <strong className="pr-1">Amb. Jarlath Anyanwu.</strong> 
-                  Mothers on Mission International is a non denominational, non-political, non-profit 
+                  Mothers on Christian Mission International, Amb. Vivian and Amb. Jarlath Anyanwu (MOM) was established in 2016 by 
+                  <strong> Amb. Vivian Anyanwu</strong> and <strong className="pr-1">Amb. Amb. Jarlath Anyanwu.</strong> 
+                  Mothers on Christian Mission International, Amb. Vivian and Amb. Jarlath Anyanwu is a non denominational, non-political, non-profit 
                   organization dedicated to empowering Nigerian mothers through spiritual growth, education, economic opportunities, and community development.
                   The organization was born out of a shared conviction that 
                   empowering mothers is the most effective way to create lasting change in Nigeria and the world at large.
