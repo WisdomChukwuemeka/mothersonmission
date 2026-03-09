@@ -8,7 +8,7 @@
 
 // ── Site-wide navigation links ─────────────────────────────
 export const navLinks = [
-  // { label: "Home",      href: "/" },
+  { label: "Home",      href: "/" },
   { label: "About",     href: "/about" },
   { label: "Programs",  href: "/programs" },
   { label: "Impact",   href: "/impact" },
@@ -86,12 +86,12 @@ export const stats = [
 // ── Four program pillars ───────────────────────────────────
 export const programs = [
   {
-    icon: "🌱",
+    icon: "bi bi-graph-up-arrow",
     title: "Economic Empowerment",
-    slug: "economic-empowerment",
+    slug: "economic empowerment",
     tagline: "Building sustainable livelihoods",
     description:
-      "We equip mothers with vocational skills, micro-finance access, and entrepreneurship mentorship so they can build sustainable livelihoods for their families.",
+      "We equip mothers with vocational skills, micro finance access, and entrepreneurship mentorship so they can build sustainable livelihoods for their families.",
     details: [
       "6-month vocational training in tailoring, baking, beauty, tech & more",
       "Access to interest-free micro-loans up to ₦500,000",
@@ -104,7 +104,7 @@ export const programs = [
     textColor: "text-emerald-700",
   },
   {
-    icon: "📚",
+    icon: "bi bi-book",
     title: "Education & Literacy",
     slug: "education-literacy",
     tagline: "Unlocking the power of knowledge",
@@ -122,7 +122,7 @@ export const programs = [
     textColor: "text-blue-700",
   },
   {
-    icon: "🏥",
+    icon: "bi bi-heart-pulse",
     title: "Health & Wellness",
     slug: "health-wellness",
     tagline: "Healthy mothers, healthy nation",
@@ -140,7 +140,7 @@ export const programs = [
     textColor: "text-rose-700",
   },
   {
-    icon: "🗣️",
+    icon: "bi bi-megaphone",
     title: "Leadership & Advocacy",
     slug: "leadership-advocacy",
     tagline: "Amplifying mothers' voices",
